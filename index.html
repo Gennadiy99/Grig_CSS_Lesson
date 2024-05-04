@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS-Grid в курсе</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-item item1">
+        1. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi
+        vero qui explicabo magni exercitationem a
+      </div>
+      <div class="grid-item item2">2</div>
+      <div class="grid-item item3">
+        3. Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis,
+        quo?
+      </div>
+      <div class="grid-item item4">4</div>
+      <div class="grid-item item5">5</div>
+      <div class="grid-item item6">6</div>
+      <div class="grid-item item7">7</div>
+      <div class="grid-item item8">8</div>
+      <div class="grid-item item9">9</div>
+    </div>
+    <h3><u>Свойства для grid-container</u></h3>
+
+    <p>Диву присвается класс <b>"grid-container</b>"</p>
+    <p>
+      В css для <b>"grid-container"</b> указывается стиль <b>"display:grid"</b>
+    </p>
+    <p>
+      <b>grid-template-columns: 1fr 1fr 1fr;</b> - для создания
+      <u>количества и размера</u> колонок.
+    </p>
+
+    Значения для <b>grid-template-columns:</b>
+    <ul>
+      <li>150px 150px 150px = <b>3 колонки по 150px Шириной.</b></li>
+      <li>20% 20% 20% = <b>3 колонки шириной по 20%</b> каждая</li>
+      <li>
+        1fr 1fr 1fr = <b>3 колонки шириной по 1fr</b> каждая (<b>1fr</b> - это
+        1часть свободного пространства)
+      </li>
+      <li>
+        <b>repeat(3, 1fr)</b> = Функция которфя повторяет
+        <b>3 раза колонку размером в 1fr</b>
+      </li>
+      <li>
+        repeat(3, minmax(150px, 1fr))= Функция <b>"repeat"</b> которая повторяет
+        3 раза,функцию <b>"minmax"</b>которая устанавливает мин. и макс. ширину
+        для колонки.
+      </li>
+      <ul>
+        <li>
+          <u
+            >grid-template-columns: repeat(<b>auto-fit,</b> minmax(100px,1fr));
+            "auto-fit"</u
+          >
+          - размещает колонки пока хватает места в контейнере основываясь на
+          минимальный размер <b>"minmax"</b> если места не хватает то колонки
+          переносятся.При избытке места занимает все пространство
+          <b>Контейнера</b> увеличивая ширину колонки на значение
+          <b>"max - 1fr"</b>
+        </li>
+      </ul>
+    </ul>
+    <h2 style="color: #6d05ce">
+      Самостоятельная работа по Таблице <b>"grid-template-areas" "grid-area"</b>
+    </h2>
+    <div class="new-container">
+      <div class="elem el1">1</div>
+      <div class="elem el2">2</div>
+      <div class="elem el3">3</div>
+      <div class="elem el4">4</div>
+      <div class="elem el5">5</div>
+      <div class="elem el6">6</div>
+    </div>
+
+    <h3><u>Свойства для "grid-item" - "элементов сетки" для КОЛОНОК</u></h3>
+
+    <p>
+      Элемент <b>"grid"</b> контейнера с классом <b>.item</b> в CSS описываются
+      свойства:
+    </p>
+    <ul>
+      <li><b>grid-column-start: 1;</b> - Первая границы колонки</li>
+      <li><b>grid-column-end: 4;</b> - Вторая граница колонки</li>
+      <li>
+        <b>grid-column-end: span 3;</b> - "span"- Обозначает кол-во
+        <b>"пространств"</b>
+      </li>
+      <li>
+        <b>grid-column: 2/4;</b> - Можно описать
+        <b>"Первую гр.кол" / "Вторую гр.кол."</b>
+      </li>
+      <li>
+        <b>grid-column: 2/span 2;</b> - Можно описать
+        <b>"Первую гр.кол." / "Кол-во пространств"</b>
+      </li>
+    </ul>
+    <p>
+      Свойство устанавливает промежуток между границами элемента <b>"зазор"</b>
+    </p>
+    <ul>
+      <li><b>grid-row-gap: 5px;</b> - Зазор в 5px между строк</li>
+      <li><b>grid-column-gap: 5px;</b> - Зазор в 5px между колонками</li>
+      <li><b>grid-gap: 10px;</b> - Зазор между Кол. и Строками 10px</li>
+      <li>
+        <b>grid-gap: 10px 5px;</b> - Зазор между строками 10px между колонками
+        5px
+      </li>
+    </ul>
+    <p>
+      При создании в контейнере строки или колонки без размера, размер бедется
+      из свойств:
+    </p>
+    <ul>
+      <li><b>grid-auto-rows: 100px;</b></li>
+      <li><b>grid-auto-columns: 1fr;</b></li>
+    </ul>
+
+    <p>Устанавливает направление элементов в сетке:</p>
+    <ul>
+      <li>
+        <b>grid-auto-flow: column;</b> Элементы будут идти по очередно с верху в
+        низ (в колонке.)
+      </li>
+      <li>
+        <b>grid-auto-flow:row;</b> Элементы будут идти с лево на право (строкой)
+      </li>
+    </ul>
+
+    <h3><u>Свойства для "grid-item" - "элементов сетки" для СТРОК</u></h3>
+    <p>
+      Элемент <b>"grid"</b> контейнера с классом <b>.item</b> в CSS описываются
+      свойства:
+    </p>
+    <ul>
+      <li><b>grid-row-start: 2;</b></li>
+      <li><b>grid-row-end: 5;</b></li>
+      <li><b>grid-row: 2/5;</b></li>
+      <li><b>grid-row: 2/span 3;</b></li>
+    </ul>
+    <div class="container">
+      <div class="item item-a">h</div>
+      <div class="item item-b">m</div>
+      <div class="item item-c">s</div>
+      <div class="item item-d">f</div>
+    </div>
+
+    <h3>Рассмотрим свойство <u>"grid-template-areas" / "grid-area"</u></h3>
+    <ul>
+      <li>
+        <b>"grid-template-areas"</b> - Указывается <b>для контейнера</b> (Шаблон
+        области сетки)
+        <ul>
+          <li>
+            <b>"head head head head"</b> -
+            <u
+              >1-я Область строка из 4х колонок привязанных к элементу
+              <b>"head"</b></u
+            >
+          </li>
+          <li>
+            <b>"main main main sidebar"</b> - 2-я Область строка из 4х кол.
+            прив. к 2м элементам <b>"main" / "sidebar"</b>
+          </li>
+          <li>
+            <b>"footer footer footer sidebar"</b> - 3-я Область строка из 4х
+            кол. прив. к 2м элементам <b>"footer" / "sidebar"</b>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <b>"grid-area"</b> - Указывается для элемента <u>".box-text1"</u>:
+        <pre>
+          .box-text1 {
+            grid-area: head;
+          }
+        </pre>
+      </li>
+    </ul>
+    <h2 style="color: #6d05ce">
+      Самостоятельная работа по Таблице <b>"grid-template-areas" "grid-area"</b>
+    </h2>
+    <!-- Самост. созд.грид.конт+элем.area -->
+    <div class="gr-contNew">
+      <div class="box-text1 box">1</div>
+      <div class="box-text2 box">2</div>
+      <div class="box-text3 box">
+        3. Lorem ipsum dolor sit, amet consectetur adipisicing elit. A modi
+        excepturi perferendis libero molestias, iusto asperiores aliquid
+        repellat ab nobis.
+      </div>
+      <div class="box-text4 box">4</div>
+    </div>
+    <h3>
+      Рассмотрим выравнивание: <u>justify-items</u> / <u>justify-content</u> /
+      <u>justify-self</u>
+    </h3>
+    <p>
+      <b>justify-items</b> -
+      <u
+        >Свойства для контейнера который позволяет выравнивать элементы
+        <b>ВНУТРИ ЯЧЕЕК</b>.</u
+      >
+    </p>
+    <ol>
+      <li>
+        <ul>
+          <li><b>justify-items</b> - Выравнивание элементов по горизонтали.</li>
+          <li><b>align-items</b> - Выравнивает по вертикали</li>
+          <li>
+            <b>place-items</b> - Обьеденяет в себе 2 выравнивания Вертикаль и
+            горизонталь
+          </li>
+        </ul>
+      </li>
+      <li>
+        <b>justify-content</b> - выравнивание <b>Всех элементов</b> внутри
+        <u>контейнера</u>
+      </li>
+      <li>
+        <b>justify-content: space-around;</b> - Выравнивание всего Контента с
+        равными отступами.
+      </li>
+      <li>
+        <b>justify-content: space-between;</b> - Выравнивание всего Контента с
+        равными отступами.Но вначале и конце нет отступов.
+      </li>
+      <li>
+        <b>justify-content: space-evenly;</b> - Выравнивание всего Контента с
+        равными отступами.
+      </li>
+      <li>
+        <b>align-content</b> - Выравнивание <b>Всех элементов</b> по вертикали
+      </li>
+      <li>
+        Все свойства <b>"justify-content"</b>
+        <u>Горизонтальное выравнивание</u> -
+        <b> ВСЕХ ЭЛЕМЕНТОВ в КОНТЕЙНЕРЕ.</b>
+        <ul>
+          <li>justify-content:start;</li>
+          <li>justify-content:end;</li>
+          <li>justify-content:center;</li>
+          <li>justify-content:space-around;</li>
+          <li>justify-content:space-between;</li>
+          <li>justify-content:space-evenly;</li>
+        </ul>
+      </li>
+      <li>
+        Все свойства <b>"align-content"</b> <u>Вертикальное выравнивание</u> -
+        <b>ВСЕХ ЭЛЕМЕНТОВ в КОНТЕЙНЕРЕ.</b>
+        <ul>
+          <li>align-content:start;</li>
+          <li>align-content:end;</li>
+          <li>align-content:center;</li>
+          <li>align-content:space-around;</li>
+          <li>align-content:space-between;</li>
+          <li>align-content:space-evenly;</li>
+        </ul>
+      </li>
+      <li>
+        Совместное свойство <b>"place-content"</b>
+        <u>для Вертикального и Горизонтального выравнивания</u>
+        <b> - ВСЕХ ЭЛЕМЕНТОВ в КОНТЕЙНЕРЕ</b>.
+      </li>
+      <li>
+        Выравнивание для самих элементов: <b>"justify-self"</b> /
+        <b>"align-self"</b> /
+        <b>"place-self"</b>
+        <ol>
+          <li>
+            "<b>justify-self:</b>"
+            <ul>
+              <li><u>justify-self: <b>start</b></u>; </li>
+              <li><u>justify-self: <b>center</b></u>; </li>
+              <li><u>justify-self: <b>end</b></u>; </li>
+              <li>place-self:</li>
+            </ul>
+          </li>
+          <li>
+            <b>"align-self"</b>
+            <ul>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </li>
+          <li>"place-self"</li>
+        </ol>
+      </li>
+    </ol>
+    <div class="align-grid-container">
+      <div class="box-cont1">1</div>
+      <div class="box-cont2">2</div>
+      <div class="box-cont3">3</div>
+      <div class="box-cont4">4</div>
+      <div class="box-cont5">5</div>
+      <div class="box-cont6">6</div>
+      <div class="box-cont7">7</div>
+      <div class="box-cont8">8</div>
+      <div class="box-cont9">9</div>
+    </div>
+  </body>
+</html>
